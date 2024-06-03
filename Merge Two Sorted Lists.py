@@ -8,13 +8,24 @@ Return the head of the merged linked list.
 
 """
 
-list1 = [1,3,5]
 
-list2 = [2,4,6]
+def twoSortedList(list1, list2):
 
+    for i in list2:
+        inserted = False
+        for j in range(len(list1)):
+            if i <= list1[j]:
+                list1.insert(j, i)
+                inserted = True
+                break
+        if not inserted :
+            list1.append(i)
 
-list3 = list1 + list2
+    return list1
 
-list3.sort()
+list1 = []
+list2 = [0]
 
-print(list3)
+merged_list = twoSortedList(list1, list2)
+
+print(merged_list)
