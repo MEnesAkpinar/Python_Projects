@@ -6,7 +6,7 @@ Consider the number of unique elements of nums to be k, to get accepted, you nee
 Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 Return k.
 
-"""
+
 
 
 def removeDuplicates(nums):
@@ -23,8 +23,29 @@ def removeDuplicates(nums):
         new_list = list(counted_list.keys())
         k = len(new_list)
 
-    return k, new_list
+    return k
 
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+
+print(removeDuplicates(nums))
+
+
+"""
+
+from typing import List
+
+
+def removeDuplicates(nums):
+    i = 0 
+    while i < len(nums) - 1:  
+        if nums[i] == nums[i + 1]:
+            print(nums[i + 1])  
+            nums.pop(i + 1)  
+        else:
+            i += 1  
+
+    return len(nums)  
 
 nums = [1,1,2]
 
