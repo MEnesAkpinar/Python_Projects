@@ -16,11 +16,16 @@ def search_position(nums, target):
 
             return nums.index(target)
         
-        elif nums[i] < target and nums[i+1] > target:
 
-            return nums.index(nums[i+1])
+        elif target < nums[0]:
+            
+            return 0
         
-        elif target > nums[-1] :
+        elif nums[i] > target:
+
+            return nums.index(nums[i])
+        
+        elif target > nums[len(nums)-1]:
 
             return len(nums)
 
@@ -29,11 +34,42 @@ def search_position(nums, target):
     
 
 
-nums = [1,3,5,6]
+nums = [1]
 
-target = 7
+target = 2
 
 
 print(search_position(nums, target))
 
 
+
+"""
+
+def searchInsert(nums, target):
+
+    index = - 1
+    for i in range(0,len(nums)):
+        if target==nums[i]:
+            index = i
+        
+    if index==-1 and target <nums[len(nums)-1]:
+        for i in range(0,len(nums)):
+            if target<nums[i]:
+                index = i
+                break
+    elif index==-1 and target > nums[len(nums)-1]:
+        index = len(nums)
+
+
+    return index
+
+
+nums = [1,3,5,6]
+
+target = 0
+
+
+print(searchInsert(nums, target))
+
+
+"""
